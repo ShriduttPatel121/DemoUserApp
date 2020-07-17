@@ -1,0 +1,66 @@
+.NewUserForm {
+    width: 50%;
+    padding: 30px;
+    box-shadow: 3px 2px 3px rgb(26, 207, 105);
+    background-color: #f5f3f3;
+    border-radius: 2rem;
+    position: fixed;
+    top: 25%;
+    right: 25%;
+}
+
+.Lable {
+    margin: 0 0 0 10%;
+}
+.Input {
+    width: 80%;
+    border-radius: 5px;
+    height: 20px;
+    display: block;
+    margin: 0.3rem auto;
+    border: 1px solid #a7a5a5;
+}
+
+.Input:focus  {
+    outline: none;
+    background-color: white;
+}
+
+.Invalid {
+   border: 2px solid red;
+   background-color: rgba(255, 5, 5, 0.582);
+}
+
+.radioInput {
+    margin: 0 20%;
+}
+
+.radioLable {
+    margin: 0 10%;
+}
+
+.radioBtnLable{
+    display: inline-block;
+    margin: 1% 0;
+}
+.Btn {
+    text-decoration: none;
+    border: 1px solid #08af40;
+    font-size: 1rem;
+    background-color: #08af40;
+    width: 81%;
+    margin: 2% 10%;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.Btn:hover {
+    background-color: white;
+    color: #08af40;
+}
+
+.Btn:disabled {
+    background-color : #cccccc;
+    cursor: not-allowed;
+    border: none;
+}

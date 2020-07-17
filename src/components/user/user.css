@@ -1,0 +1,19 @@
+.userCard {
+    width: 30%;
+    margin: 4% auto;
+    border: 2px solid #BED8D4;
+    border-radius: 1rem;
+    background-color: #BED8D4;
+}
+
+.userName {
+   text-align: center;
+}
+
+.Email {
+    text-align: center;
+}
+
+.IsAdmin{
+    text-align: center;
+}

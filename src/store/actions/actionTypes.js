@@ -1,0 +1,34 @@
+export const SET_AUTH_STATUS_TRUE = 'SET_AUTH_STATUS_TRUE';
+export const SET_AUTH_STATUS_FALSE = 'SET_AUTH_STATUS_FALSE';
+
+export const ADD_USER = 'ADD_USER';
+
+//login process
+export const AUTH_START = 'AUTH_START';
+export const AUTH_SUCCESS = 'AUTH_SUCCESS';
+export const AUTH_FAIL = 'AUTH_FAIL';
+
+// fetching current login user's simple user list
+export const FETCH_CURRENT_ADMIN_USERS_START = 'FETCH_CURRENT_ADMIN_USERS_START';
+export const FETCH_CURRENT_ADMIN_USERS_SUCCESS = 'FETCH_CURRENT_ADMIN_USERS_SUCCESS';
+export const FETCH_CURRENT_ADMIN_USERS_FAIL = 'FETCH_CURRENT_ADMIN_USERS_FAIL';
+
+// for creating simple user.
+export const POST_NEW_SIMPLE_USER_START = 'POST_NEW_SIMPLE_USER_START';
+export const POST_NEW_SIMPLE_USER_SUCCESS = 'POST_NEW_SIMPLE_USER_SUCCESS';
+export const POST_NEW_SIMPLE_USER_FAIL = 'POST_NEW_SIMPLE_USER_FAIL';
+
+//for creating admin user.
+export const POST_NEW_ADMIN_USER_START = 'POST_NEW_ADMIN_USER_START';
+export const POST_NEW_ADMIN_USER_SUCCESS = 'POST_NEW_ADMIN_USER_SUCCESS';
+export const POST_NEW_ADMIN_USER_FAIL = 'POST_NEW_ADMIN_USER_FAIL';
+
+//for fetching all admin users.......
+export const GET_ALL_ADMINS_START = 'GET_ALL_ADMINS_START';
+export const GET_ALL_ADMINS_SUCCESS = 'GET_ALL_ADMINS_SUCCESS';
+export const GET_ALL_ADMINS_FAIL = 'GET_ALL_ADMINS_FAIL';
+
+//for fetching simple-users from all-users' page
+export const FETCH_SIMPLE_USERS_START = 'FETCH_SIMPLE_USERS_START';
+export const FETCH_SIMPLE_USERS_SUCCESS = 'FETCH_SIMPLE_USERS_SUCCESS';
+export const FETCH_SIMPLE_USERS_FAIL = 'FETCH_SIMPLE_USERS_FAIL';
