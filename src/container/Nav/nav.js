@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import {Route, NavLink, Switch, Redirect} from 'react-router-dom';
 import AllUsers from '../AllUsers/AllUsers';
 import YourUsers from '../YourUsers/YourUsers';
-import NewUser from '../NewUser/newUser';
 import classes from './nav.css';
-import LoginForm from '../login/login';
+import MyForm from '../My-form/My-form';
+import Login from '../login/login';
 import { connect } from 'react-redux'
 import { setAuthtoFalse } from '../../store/actions/index'
 class Navbar extends Component {
@@ -30,14 +30,14 @@ class Navbar extends Component {
                 <Switch>
                         <Route path='/all-users' component={AllUsers} />
                         <Route path='/your-users' component={YourUsers} />
-                        <Route path='/new-user' component={NewUser} />
-                        <Route path='/login' component={LoginForm} />
+                        <Route path='/new-user' component={MyForm} />
+                        <Route path='/login' component={Login} />
                     </Switch>
             );
         } else {
             routes = (
                     <Switch>
-                        <Route path='/login' component={LoginForm} />
+                        <Route path='/login' component={Login} />
                         <Redirect to="/login" />
                     </Switch>
             );

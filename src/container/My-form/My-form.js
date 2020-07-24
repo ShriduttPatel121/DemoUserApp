@@ -1,17 +1,31 @@
 import React, { Component } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import './My-form.css';
-import CustomeInputText from '../FormElements/inputText/cutomeInputText'
+import classes from './My-form.css';
+import CustomeInputText from '../FormElements/inputText/CustomeInputText'
 import SelectInput from '../FormElements/RadioInput/RadioInput';
 import { connect } from 'react-redux'
 import { postNewSimpleUser, postNewAdminUser } from '../../store/actions/index';
+import Spinner from '../../components/UI/spinner/Spinner';
 
 class MyForm extends Component {
  
     render() {
+        let form = (<div>
+        <CustomeInputText  label="Username" name="name" type="text" placeholder="entrer you username"/>
+        <CustomeInputText  label="Email" name="email" type="email" placeholder="entrer you email"/>
+        <CustomeInputText  label="Password" name="password" type="password" />
+        <SelectInput name="isAdmin">
+            <option value="true">True</option>
+            <option value='false'>False</option>
+        </SelectInput>
+        </div>
+        );
+    if (this.props.loading) {
+        form = <Spinner bColor='#f5f3f3'/>
+    }
         return (
-            <div className="form">
+            <div className={classes.form}>
             <Formik
                 initialValues = {{
                     name : '',
@@ -33,7 +47,7 @@ class MyForm extends Component {
                 .min(6, 'password must have atleast 6 or more characters')
                 .required('This field is required')
                 .matches(RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})"), 'Must haveatleast one captal letter and spacial letter'),
-                isManager : Yup.string()
+                isAdmin : Yup.string()
                 .oneOf(['true', 'false'],'You have to select either of this options')
                 .required('This field is required')
                 
@@ -47,24 +61,24 @@ class MyForm extends Component {
                 },3000) */
                 if (values.isAdmin === 'false') {
                     this.props.onPostNewSimpleUser(values, this.props.currentUserId)
+                    resetForm();
+                    setSubmitting(false)
                     this.props.history.push('/your-users');
-                } else {
+                } if (values.isAdmin === 'true') {
                     this.props.onPostNewAdminUser(values);
-                    this.props.history.push('/all-users');
+                    resetForm();
+                    setSubmitting(false)
+                    setTimeout(() => {
+                        this.props.history.push('/all-users');
+                    },50)
                 }
             }}
             >
                 {props =>{
                     return(
                     <form className="signup-form" onSubmit={props.handleSubmit}>
-                        <CustomeInputText  label="Username" name="name" type="text" placeholder="entrer you username"/>
-                        <CustomeInputText  label="Email" name="email" type="email" placeholder="entrer you email"/>
-                        <CustomeInputText  label="Password" name="password" type="password" />
-                        <SelectInput name="isAdmin">
-                            <option value="true">True</option>
-                            <option value='false'>False</option>
-                        </SelectInput>
-                        <button className="Btn" type="submit" disabled={!props.isValid || props.isSubmitting}>{!props.isSubmitting?"Submit" : "Loading..."}</button>
+                        {form}
+                    <button className={classes.Btn} type="submit" disabled={!props.isValid || props.isSubmitting}>{!props.isSubmitting?"Submit" : "Loading..."}</button>
                     </form>
                 )}}
             </Formik>
